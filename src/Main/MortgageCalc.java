@@ -7,15 +7,25 @@ public class MortgageCalc {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Principal: ");
         long principal = scanner.nextLong();
+
         System.out.println("Annual Interest Rate: ");
         double air = scanner.nextDouble();
+
         System.out.println("Loan Period (Years): ");
-        int loanLength = scanner.nextInt();
+        long annualInterest = scanner.nextInt();
+
+        double monthlyInterest = air / 12;
+        double sumInterest = monthlyInterest / 100;
+        long numPayments = annualInterest * 12;
+
+        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numPayments)) / Math.pow(1 + monthlyInterest, numPayments);
+
+
 
 //        testing values
-        System.out.println(principal);
-        System.out.println(air);
-        System.out.println(loanLength);
+//        System.out.println(principal);
+//        System.out.println(air);
+//        System.out.println(annualInterest);
 
     }
 }
