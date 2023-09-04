@@ -1,5 +1,6 @@
 package Main;
 
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class MortgageCalc {
@@ -19,6 +20,8 @@ public class MortgageCalc {
         long numPayments = annualInterest * 12;
 
         double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numPayments)) / Math.pow(1 + monthlyInterest, numPayments);
+        String formattedMortgage = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println("Mortgage: " + formattedMortgage);
 
 
 
